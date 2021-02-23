@@ -7,5 +7,6 @@
   "files.trimTrailingWhitespace": true,
   "[rust]": {
     "editor.defaultFormatter": "matklad.rust-analyzer"
-  }
+  },
+  "rust-analyzer.diagnostics.disabled": ["missing-unsafe"]
 }
