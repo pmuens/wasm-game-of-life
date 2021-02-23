@@ -4,6 +4,14 @@ use std::fmt;
 
 use wasm_bindgen::prelude::*;
 
+extern crate web_sys;
+
+macro_rules! log {
+    ( $( $t:tt )* ) => {
+        web_sys::console::log_1(&format!( $( $t )* ).into());
+    }
+}
+
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
 // allocator.
 #[cfg(feature = "wee_alloc")]
@@ -61,6 +69,10 @@ impl Universe {
 #[wasm_bindgen]
 impl Universe {
     pub fn new() -> Universe {
+        utils::set_panic_hook();
+
+        log!("Creating new Universe!");
+
         let width = 64;
         let height = 64;
         let cells = (0..width * height)
