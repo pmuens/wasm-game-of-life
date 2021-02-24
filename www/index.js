@@ -23,7 +23,10 @@ const playPauseButton = document.getElementById("play-pause");
 const renderLoop = () => {
   fps.render();
 
-  universe.tick();
+  for (let i = 0; i < 9; i++) {
+    universe.tick();
+  }
+
   drawGrid();
   drawCells();
 
