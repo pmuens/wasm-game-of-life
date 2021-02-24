@@ -101,8 +101,10 @@ impl Universe {
 
         log!("Creating new Universe!");
 
-        let width = 64;
-        let height = 64;
+        let dimension = 100;
+
+        let width = dimension;
+        let height = dimension;
         let cells = (0..width * height)
             .map(|i| {
                 if i % 2 == 0 || i % 7 == 0 {
